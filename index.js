@@ -58,7 +58,7 @@
   // runs everything
   function update () {
     // queue the next update
-    window.requestAnimationFrame(update)
+    if(iter < 3600)window.requestAnimationFrame(update)
 
     // logic goes here
 	 iter++;
