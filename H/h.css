@@ -33,6 +33,6 @@ p {
 body {
   /*margin: 0;
   padding: 0;*/
-  width: 800;
+  /*width: 800; not working too*/
   background-color: rgba(0, 0, 0, 0.05);
 }
