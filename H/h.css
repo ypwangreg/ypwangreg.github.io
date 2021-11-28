@@ -27,7 +27,7 @@ p {
   z-index: -1;
   height: 480;
   width: 640;
-  aspect-ratio: 640/480;
+  /*aspect-ratio: 640/480; still auto.. not working*/
 }
 
 body {
