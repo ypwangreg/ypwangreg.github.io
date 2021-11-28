@@ -27,10 +27,12 @@ p {
   z-index: -1;
   height: 480;
   width: 640;
+  aspect-ratio: 640/480;
 }
 
 body {
   /*margin: 0;
   padding: 0;*/
+  width: 800;
   background-color: rgba(0, 0, 0, 0.05);
 }
