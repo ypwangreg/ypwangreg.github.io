@@ -140,7 +140,8 @@ vec4 getFramesSample(vec2 xy) {
   
     // Song info (experimental)
     var songTimer = null;
-    var songInfo = 'http://fm.acko.net/status-json.xsl';
+    //var songInfo = 'http://fm.acko.net/status-json.xsl';
+    var songInfo = 'https://aioo.pw/status-json.xsl';
     var infoEl = document.querySelector('#about');
     var trackSongInfo = function () {
       if (!songTimer) {
@@ -157,6 +158,13 @@ vec4 getFramesSample(vec2 xy) {
       fetch(songInfo, 'json', function (err, xhr) {
         if (xhr.response && xhr.response.icestats && xhr.response.icestats.source) {
           var song = xhr.response.icestats.source.title;
+          if (song == undefined) {
+	     		const src = audio.src.split('/').pop();
+	     		for (const source of xhr.response.icestats.source ) {
+               if (source.listenurl.split('/').pop() == src) 
+		   		song = source.artist + '-' + source.title; 
+	     		}
+	  		 }
           infoEl.textContent = '♫  ' + song;
           infoEl.style.opacity = 1;
 
@@ -181,7 +189,8 @@ vec4 getFramesSample(vec2 xy) {
       if (!audio) {
         audio = new Audio();
         var sources = [
-          ['audio/mpeg', 'http://fm.acko.net/1337.mp3'],
+         // ['audio/mpeg', 'http://fm.acko.net/1337.mp3'],
+          ['audio/mpeg', 'https://aioo.pw/stream.ogg'],
         ];
 
         sources.forEach(function (source) {
